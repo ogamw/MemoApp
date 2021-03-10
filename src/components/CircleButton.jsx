@@ -3,8 +3,9 @@ import { View, Text, StyleSheet } from 'react-native';
 import { string } from 'prop-types';
 
 export default function CircleButton(props) {
+  // eslint-disable-next-line react/prop-types
   const { children } = props;
-  return(
+  return (
     <View style={styles.circleButton}>
       <Text style={styles.circleButtonLabel}>{children}</Text>
     </View>
