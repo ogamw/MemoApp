@@ -1,9 +1,11 @@
 import React from 'react';
 
-import MemoListScreen from './src/screens/MemoListScreen';
+import メモリスト画面 from './src/screens/メモリスト画面';
+import メモ詳細画面 from './src/screens/メモ詳細画面';
 
 export default function App() {
   return (
-    <MemoListScreen />
+    // eslint-disable-next-line react/jsx-pascal-case
+    <メモ詳細画面 />
   );
 }

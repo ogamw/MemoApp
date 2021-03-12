@@ -5,7 +5,7 @@ import AppBar from '../components/AppBar';
 import MemoList from '../components/MemoList';
 import CircleButton from '../components/CircleButton';
 
-export default function MemoListScreen() {
+export default function メモリスト画面() {
   return (
     <View style={styles.container}>
       <AppBar />

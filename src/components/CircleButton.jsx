@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { string } from 'prop-types';
+import { shape, string } from 'prop-types';
 
 export default function CircleButton(props) {
   // eslint-disable-next-line react/prop-types
-  const { children } = props;
+  const { children, style } = props;
   return (
-    <View style={styles.circleButton}>
+    <View style={[styles.circleButton, style]}>
       <Text style={styles.circleButtonLabel}>{children}</Text>
     </View>
   );
@@ -14,6 +14,11 @@ export default function CircleButton(props) {
 
 CircleButton.prototypes = {
   children: string.isRequired,
+  style: shape(),
+};
+
+CircleButton.defaultProps = {
+  style: null,
 };
 
 const styles = StyleSheet.create({
