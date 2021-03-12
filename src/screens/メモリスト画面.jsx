@@ -10,7 +10,7 @@ export default function メモリスト画面() {
     <View style={styles.container}>
       <AppBar />
       <MemoList />
-      <CircleButton>+</CircleButton>
+      <CircleButton name="plus" />
     </View>
   );
 }

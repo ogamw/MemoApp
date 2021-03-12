@@ -6,6 +6,6 @@ import メモ詳細画面 from './src/screens/メモ詳細画面';
 export default function App() {
   return (
     // eslint-disable-next-line react/jsx-pascal-case
-    <メモ詳細画面 />
+    <メモリスト画面 />
   );
 }
