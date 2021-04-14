@@ -1,20 +1,24 @@
 import React from 'react';
 import {
-  View, StyleSheet, TextInput, KeyboardAvoidingView,
+  View, StyleSheet, TextInput,
+// KeyboardAvoidingView,
 } from 'react-native';
 
 import AppBar from '../components/AppBar';
 import CircleButton from '../components/CircleButton';
+import KeyboadSafeView from '../components/KeyboadSafeVie';
 
-export default function メモ詳細画面() {
+export default function メモ編集画面() {
   return (
-    <KeyboardAvoidingView style={styles.container} behavior="height">
+    // <KeyboardAvoidingView style={styles.container} behavior="height">
+    <KeyboadSafeView style={styles.container}>
       <AppBar />
       <View style={styles.inputContainer}>
         <TextInput value="買い物リスト" multiline style={styles.input} />
       </View>
       <CircleButton name="check" />
-    </KeyboardAvoidingView>
+    </KeyboadSafeView>
+    // </KeyboardAvoidingView>
   );
 }
 
