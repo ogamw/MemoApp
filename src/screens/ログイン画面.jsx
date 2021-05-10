@@ -22,7 +22,7 @@ export default function ログイン画面() {
         <View style={styles.footer}>
           <Text style={styles.footerText}>Not registred?</Text>
           <TouchableOpacity>
-            <Text style={styles.footerLink}>Sign up here!</Text>
+            <Text style={styles.footerLink}>Sign Up here!</Text>
           </TouchableOpacity>
         </View>
       </View>
