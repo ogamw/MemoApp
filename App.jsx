@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
 
 import メモリスト画面 from './src/screens/メモリスト画面';
 import メモ詳細画面 from './src/screens/メモ詳細画面';
@@ -22,14 +22,30 @@ export default function App() {
           headerTitle: 'Memo App',
           headerTintColor: '#ffffff',
           headerBackTitle: 'Back',
+          // 画面遷移のアニメーションを指定。参照→https://reactnavigation.org/docs/stack-navigator/#animations
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+          gestureEnabled: true,
+          gestureDirection: 'horizontal',
         }}
       >
         <Stack.Screen name="MemoList" component={メモリスト画面} />
         <Stack.Screen name="MemoDetail" component={メモ詳細画面} />
         <Stack.Screen name="MemoEdit" component={メモ編集画面} />
         <Stack.Screen name="MemoCreate" component={メモ作成画面} />
-        <Stack.Screen name="LogIn" component={ログイン画面} />
-        <Stack.Screen name="SignUp" component={サインアップ画面} />
+        <Stack.Screen
+          name="LogIn"
+          component={ログイン画面}
+          options={{
+            cardStyleInterpolator: CardStyleInterpolators.forFadeFromBottomAndroid,
+          }}
+        />
+        <Stack.Screen
+          name="SignUp"
+          component={サインアップ画面}
+          options={{
+            cardStyleInterpolator: CardStyleInterpolators.forFadeFromBottomAndroid,
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
