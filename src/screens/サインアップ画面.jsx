@@ -21,11 +21,19 @@ export default function サインアップ画面(props) {
           style={styles.input}
           value={email}
           onChangeText={(text) => { setEmail(text); }}
+          autoCapitalize="none"
+          keyboardType="email-address"
+          placeholder="Email Adress"
+          textContentType="emailAddress"
         />
         <TextInput
           style={styles.input}
           value={password}
           onChangeText={(text) => { setPassword(text); }}
+          autoCapitalize="none"
+          placeholder="Password"
+          secureTextEntry
+          textContentType="password"
         />
         <Button
           label="Submit"
