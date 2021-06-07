@@ -19,11 +19,24 @@ export default function ログイン画面(props) {
         <TextInput style={styles.input} value="Password" />
         <Button
           label="Submit"
-          onPress={() => { navigation.navigate('MemoList'); }}
+          onPress={() => {
+            // resetは（ここではrotesの指示に従って）ナビゲーションを上書きする（つまり履歴を消去して戻るボタンをなくす）
+            navigation.reset({
+              index: 0,
+              routes: [{ name: 'MemoList' }],
+            });
+          }}
         />
         <View style={styles.footer}>
           <Text style={styles.footerText}>Not registred?</Text>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.reset({
+                index: 0,
+                routes: [{ name: 'SignUp' }],
+              });
+            }}
+          >
             <Text style={styles.footerLink}>Sign Up here!</Text>
           </TouchableOpacity>
         </View>

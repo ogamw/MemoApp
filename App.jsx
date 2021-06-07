@@ -15,7 +15,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="LogIn"
+        initialRouteName="SignUp"
         screenOptions={{
           headerStyle: { backgroundColor: '#467Fd3' },
           headerTitleStyle: { color: '#ffffff' },
@@ -29,7 +29,7 @@ export default function App() {
         <Stack.Screen name="MemoEdit" component={メモ編集画面} />
         <Stack.Screen name="MemoCreate" component={メモ作成画面} />
         <Stack.Screen name="LogIn" component={ログイン画面} />
-        <Stack.Screen name="signUp" component={サインアップ画面} />
+        <Stack.Screen name="SignUp" component={サインアップ画面} />
       </Stack.Navigator>
     </NavigationContainer>
   );
