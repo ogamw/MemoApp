@@ -4,19 +4,21 @@ import {
 // KeyboardAvoidingView,
 } from 'react-native';
 
-import AppBar from '../components/AppBar';
 import CircleButton from '../components/CircleButton';
 import KeyboadSafeView from '../components/KeyboadSafeVie';
 
-export default function メモ作成画面() {
+export default function メモ作成画面(props) {
+  const { navigation } = props;
   return (
     // <KeyboardAvoidingView style={styles.container} behavior="height">
     <KeyboadSafeView style={styles.container}>
-      <AppBar />
       <View style={styles.inputContainer}>
         <TextInput value="買" multiline style={styles.input} />
       </View>
-      <CircleButton name="check" />
+      <CircleButton
+        name="check"
+        onPress={() => { navigation.goback(); }}
+      />
     </KeyboadSafeView>
     // </KeyboardAvoidingView>
   );

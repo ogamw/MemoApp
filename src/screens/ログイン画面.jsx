@@ -7,18 +7,20 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-import AppBar from '../components/AppBar';
 import Button from '../components/Button';
 
-export default function ログイン画面() {
+export default function ログイン画面(props) {
+  const { navigation } = props;
   return (
     <View style={styles.container}>
-      <AppBar />
       <View style={styles.inner}>
         <Text style={styles.title}>Log In</Text>
         <TextInput style={styles.input} value="Email Adress" />
         <TextInput style={styles.input} value="Password" />
-        <Button label="Submit" />
+        <Button
+          label="Submit"
+          onPress={() => { navigation.navigate('MemoList'); }}
+        />
         <View style={styles.footer}>
           <Text style={styles.footerText}>Not registred?</Text>
           <TouchableOpacity>
