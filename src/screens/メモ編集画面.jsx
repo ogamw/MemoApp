@@ -1,4 +1,3 @@
-import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import {
   View, StyleSheet, TextInput,
@@ -8,7 +7,8 @@ import {
 import CircleButton from '../components/CircleButton';
 import KeyboadSafeView from '../components/KeyboadSafeVie';
 
-export default function メモ編集画面() {
+export default function メモ編集画面(props) {
+  const { navigation } = props;
   return (
     // <KeyboardAvoidingView style={styles.container} behavior="height">
     <KeyboadSafeView style={styles.container}>
@@ -17,7 +17,7 @@ export default function メモ編集画面() {
       </View>
       <CircleButton
         name="check"
-        onPress={() => { NavigationContainer.goback(); }}
+        onPress={() => { navigation.goBack(); }}
       />
     </KeyboadSafeView>
     // </KeyboardAvoidingView>
