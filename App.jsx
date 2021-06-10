@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
+import firebase from 'firebase';
 
 import メモリスト画面 from './src/screens/メモリスト画面';
 import メモ詳細画面 from './src/screens/メモ詳細画面';
@@ -10,6 +11,19 @@ import ログイン画面 from './src/screens/ログイン画面';
 import サインアップ画面 from './src/screens/サインアップ画面';
 
 const Stack = createStackNavigator();
+
+const firebaseConfig = {
+  apiKey: 'AIzaSyBKKbEGxipK2UXcOe18PXDYjfP37vO2_To',
+  authDomain: 'memoapp-653d9.firebaseapp.com',
+  projectId: 'memoapp-653d9',
+  storageBucket: 'memoapp-653d9.appspot.com',
+  messagingSenderId: '791219054800',
+  appId: '1:791219054800:web:68c3a8a7a23ea52b70d6d5',
+};
+
+if (firebase.apps.length === 0) {
+  firebase.initializeApp(firebaseConfig);
+}
 
 export default function App() {
   return (
