@@ -10,16 +10,9 @@ import メモ作成画面 from './src/screens/メモ作成画面';
 import ログイン画面 from './src/screens/ログイン画面';
 import サインアップ画面 from './src/screens/サインアップ画面';
 
-const Stack = createStackNavigator();
+import { firebaseConfig } from './env';
 
-const firebaseConfig = {
-  apiKey: 'AIzaSyBKKbEGxipK2UXcOe18PXDYjfP37vO2_To',
-  authDomain: 'memoapp-653d9.firebaseapp.com',
-  projectId: 'memoapp-653d9',
-  storageBucket: 'memoapp-653d9.appspot.com',
-  messagingSenderId: '791219054800',
-  appId: '1:791219054800:web:68c3a8a7a23ea52b70d6d5',
-};
+const Stack = createStackNavigator();
 
 if (firebase.apps.length === 0) {
   firebase.initializeApp(firebaseConfig);
