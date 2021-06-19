@@ -4,11 +4,29 @@ import {
 // KeyboardAvoidingView,
 } from 'react-native';
 
+import firebase from 'firebase';
+
 import CircleButton from '../components/CircleButton';
 import KeyboadSafeView from '../components/KeyboadSafeVie';
 
 export default function メモ作成画面(props) {
   const { navigation } = props;
+
+  function handlePress() {
+    const db = firebase.firestore();
+    const ref = db.collection('memos');
+    ref.add({
+      bodyText: 'Hello',
+    })
+      .then((docRef) => {
+        console.log('Created!', docRef.id);
+        navigation.goBack();
+      })
+      .catch((error) => {
+        console.log('Error!', error);
+      });
+  }
+
   return (
     // <KeyboardAvoidingView style={styles.container} behavior="height">
     <KeyboadSafeView style={styles.container}>
@@ -17,7 +35,7 @@ export default function メモ作成画面(props) {
       </View>
       <CircleButton
         name="check"
-        onPress={() => { navigation.goback(); }}
+        onPress={handlePress}
       />
     </KeyboadSafeView>
     // </KeyboardAvoidingView>
