@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View, StyleSheet, TextInput,
 // KeyboardAvoidingView,
@@ -11,12 +11,16 @@ import KeyboadSafeView from '../components/KeyboadSafeVie';
 
 export default function メモ作成画面(props) {
   const { navigation } = props;
+  const [bodyText, setBodyText] = useState('');
 
   function handlePress() {
+    const { currentUser } = firebase.auth();
     const db = firebase.firestore();
-    const ref = db.collection('memos');
+    const ref = db.collection(`users/${currentUser.uid}/memos`);
     ref.add({
-      bodyText: 'Hello',
+      // bodyText: bodyText,（キーとバリューの名前が同じなので下記の特殊な記述になる）
+      bodyText,
+      updatedAt: new Date(),
     })
       .then((docRef) => {
         console.log('Created!', docRef.id);
@@ -31,7 +35,13 @@ export default function メモ作成画面(props) {
     // <KeyboardAvoidingView style={styles.container} behavior="height">
     <KeyboadSafeView style={styles.container}>
       <View style={styles.inputContainer}>
-        <TextInput value="買" multiline style={styles.input} />
+        <TextInput
+          value={bodyText}
+          multiline
+          style={styles.input}
+          onChangeText={(text) => { setBodyText(text); }}
+          autoFocus
+        />
       </View>
       <CircleButton
         name="check"
