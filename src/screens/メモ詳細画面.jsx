@@ -1,4 +1,5 @@
 import React from 'react';
+import { shape, string } from 'prop-types';
 import {
   View, ScrollView, Text, StyleSheet,
 } from 'react-native';
@@ -6,7 +7,9 @@ import {
 import CircleButton from '../components/CircleButton';
 
 export default function メモ詳細画面(props) {
-  const { navigation } = props;
+  const { navigation, route } = props;
+  const { id } = route.params;
+  console.log(id);
   return (
     <View style={styles.container}>
       <View style={styles.memoHeader}>
@@ -28,6 +31,12 @@ export default function メモ詳細画面(props) {
     </View>
   );
 }
+
+メモ詳細画面.propTypes = {
+  route: shape({
+    params: shape({ id: string }),
+  }).isRequired,
+};
 
 const styles = StyleSheet.create({
   container: {
