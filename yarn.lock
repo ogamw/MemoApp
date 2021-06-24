@@ -3276,6 +3276,11 @@
   "resolved" "https://registry.npmjs.org/damerau-levenshtein/-/damerau-levenshtein-1.0.6.tgz"
   "version" "1.0.6"
 
+"date-fns@^2.22.1":
+  "integrity" "sha512-yUFPQjrxEmIsMqlHhAhmxkuH769baF21Kk+nZwZGyrMoyLA+LugaQtC0+Tqf9CBUUULWwUJt6Q5ySI3LJDDCGg=="
+  "resolved" "https://registry.npmjs.org/date-fns/-/date-fns-2.22.1.tgz"
+  "version" "2.22.1"
+
 "dayjs@^1.8.15":
   "integrity" "sha512-RI/Hh4kqRc1UKLOAf/T5zdMMX5DQIlDxwUe3wSyMMnEbGunnpENCdbUgM+dW7kXidZqCttBrmw7BhN4TMddkCw=="
   "resolved" "https://registry.yarnpkg.com/dayjs/-/dayjs-1.10.4.tgz"

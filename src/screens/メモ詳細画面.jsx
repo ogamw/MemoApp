@@ -1,26 +1,47 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { shape, string } from 'prop-types';
 import {
   View, ScrollView, Text, StyleSheet,
 } from 'react-native';
+import firebase from 'firebase';
 
 import CircleButton from '../components/CircleButton';
+import { dateToString } from '../utils';
 
 export default function メモ詳細画面(props) {
   const { navigation, route } = props;
   const { id } = route.params;
   console.log(id);
+  const [memo, setMemo] = useState(null);
+
+  useEffect(() => {
+    const { currentUser } = firebase.auth();
+    let unsubscribe = () => {};
+    if (currentUser) {
+      const db = firebase.firestore();
+      const ref = db.collection(`users/${currentUser.uid}/memos`).doc(id);
+      unsubscribe = ref.onSnapshot((doc) => {
+        console.log(doc.id, doc.data());
+        const data = doc.data();
+        setMemo({
+          id: doc.id,
+          bodyText: data.bodyText,
+          updatedAt: data.updatedAt.toDate(),
+        });
+      });
+    }
+    return unsubscribe;
+  }, []);
+
   return (
     <View style={styles.container}>
       <View style={styles.memoHeader}>
-        <Text style={styles.memoTitle}>買い物リスト</Text>
-        <Text style={styles.memoDate}>2021年3月12日 10:00</Text>
+        <Text style={styles.memoTitle} numberOfLines={1}>{memo && memo.bodyText}</Text>
+        <Text style={styles.memoDate}>{memo && dateToString(memo.updatedAt)}</Text>
       </View>
       <ScrollView style={styles.memoBody}>
         <Text style={styles.memoText}>
-          買い物リスト
-          書体やレイアウトなどを確認するために用います。
-          本文用なので使い方を間違えると不自然に見えることもありますので要注意。
+          {memo && memo.bodyText}
         </Text>
       </ScrollView>
       <CircleButton
