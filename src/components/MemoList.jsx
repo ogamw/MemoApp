@@ -7,6 +7,7 @@ import {
   Alert,
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
+// useNavigationを参照→https://reactnavigation.org/docs/use-navigation/
 import { useNavigation } from '@react-navigation/native';
 import {
   shape, string, instanceOf, arrayOf,
@@ -31,7 +32,7 @@ export default function MemoList(props) {
             style={styles.memoDelete}
             onPress={() => { Alert.alert('Are you sure?'); }}
           >
-            <Feather name="delete" size={16} color="#B0B0B0" />
+            <Feather name="x" size={16} color="#B0B0B0" />
           </TouchableOpacity>
         </TouchableOpacity>
       ))}
