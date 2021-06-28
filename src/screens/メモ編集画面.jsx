@@ -8,6 +8,7 @@ import firebase from 'firebase';
 import CircleButton from '../components/CircleButton';
 import KeyboadSafeView from '../components/KeyboadSafeVie';
 import Loading from '../components/Loading';
+import { translateErrors } from '../utils';
 
 export default function メモ編集画面(props) {
   const { navigation, route } = props;
@@ -29,7 +30,8 @@ export default function メモ編集画面(props) {
           navigation.goBack();
         })
         .catch((error) => {
-          Alert.alert(error.code);
+          const errorMsg = translateErrors(error.code);
+          Alert.alert(errorMsg.title, errorMsg.description);
         })
         .then(() => {
           setLoading(false);

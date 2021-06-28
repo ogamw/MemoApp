@@ -11,6 +11,7 @@ import firebase from 'firebase';
 
 import Button from '../components/Button';
 import Loading from '../components/Loading';
+import { translateErrors } from '../utils';
 
 export default function ログイン画面(props) {
   const { navigation } = props;
@@ -44,7 +45,8 @@ export default function ログイン画面(props) {
         });
       })
       .catch((error) => {
-        Alert.alert(error.code);
+        const errorMsg = translateErrors(error.code);
+        Alert.alert(errorMsg.title, errorMsg.description);
       })
       .then(() => {
         setLoading(false);
