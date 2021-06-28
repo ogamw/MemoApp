@@ -10,16 +10,16 @@ import {
 import firebase from 'firebase';
 
 import Button from '../components/Button';
+import Loading from '../components/Loading';
 
 export default function サインアップ画面(props) {
   const { navigation } = props;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoading, setLoading] = useState(false);
 
-  // handPressしたらfirebaseのcreateUserWithEmailAndPasswordでemailとpasswordを渡し、
-  // userCredential(会委員登録)したら=>を実行する（ユーザーの情報をとって、console.logで表示）
-  // thenは成功した場合の処理、catchはエラーが起きた場合の処理を書く
   function handlePress() {
+    setLoading(true);
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
         const { user } = userCredential;
@@ -32,11 +32,15 @@ export default function サインアップ画面(props) {
       .catch((error) => {
         console.log(error.code, error.message);
         Alert.alert(error.code);
+      })
+      .then(() => {
+        setLoading(false);
       });
   }
 
   return (
     <View style={styles.container}>
+      <Loading isLoading={isLoading} />
       <View style={styles.inner}>
         <Text style={styles.title}>Sign Up</Text>
         <TextInput
@@ -105,7 +109,6 @@ const styles = StyleSheet.create({
   },
 
   footer: {
-    // 横並びにする
     flexDirection: 'row',
   },
   footerText: {

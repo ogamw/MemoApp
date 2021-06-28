@@ -1,24 +1,25 @@
 import React, { useState } from 'react';
 import {
   View, StyleSheet, TextInput,
-// KeyboardAvoidingView,
 } from 'react-native';
 
 import firebase from 'firebase';
 
 import CircleButton from '../components/CircleButton';
 import KeyboadSafeView from '../components/KeyboadSafeVie';
+import Loading from '../components/Loading';
 
 export default function メモ作成画面(props) {
   const { navigation } = props;
   const [bodyText, setBodyText] = useState('');
+  const [isLoading, setLoading] = useState(false);
 
   function handlePress() {
+    setLoading(true);
     const { currentUser } = firebase.auth();
     const db = firebase.firestore();
     const ref = db.collection(`users/${currentUser.uid}/memos`);
     ref.add({
-      // bodyText: bodyText,（キーとバリューの名前が同じなので下記の特殊な記述になる）
       bodyText,
       updatedAt: new Date(),
     })
@@ -28,13 +29,16 @@ export default function メモ作成画面(props) {
       })
       .catch((error) => {
         console.log('Error!', error);
+      })
+      .then(() => {
+        setLoading(false);
       });
   }
 
   return (
-    // <KeyboardAvoidingView style={styles.container} behavior="height">
     <KeyboadSafeView style={styles.container}>
       <View style={styles.inputContainer}>
+        <Loading isLoading={isLoading} />
         <TextInput
           value={bodyText}
           multiline
@@ -48,7 +52,6 @@ export default function メモ作成画面(props) {
         onPress={handlePress}
       />
     </KeyboadSafeView>
-    // </KeyboardAvoidingView>
   );
 }
 

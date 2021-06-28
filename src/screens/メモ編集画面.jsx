@@ -7,13 +7,16 @@ import firebase from 'firebase';
 
 import CircleButton from '../components/CircleButton';
 import KeyboadSafeView from '../components/KeyboadSafeVie';
+import Loading from '../components/Loading';
 
 export default function メモ編集画面(props) {
   const { navigation, route } = props;
   const { id, bodyText } = route.params;
   const [body, setBody] = useState(bodyText);
+  const [isLoading, setLoading] = useState(false);
 
   function handlePress() {
+    setLoading(true);
     const { currentUser } = firebase.auth();
     if (currentUser) {
       const db = firebase.firestore();
@@ -27,12 +30,16 @@ export default function メモ編集画面(props) {
         })
         .catch((error) => {
           Alert.alert(error.code);
+        })
+        .then(() => {
+          setLoading(false);
         });
     }
   }
   return (
     <KeyboadSafeView style={styles.container}>
       <View style={styles.inputContainer}>
+        <Loading isLoading={isLoading} />
         <TextInput
           value={body}
           multiline
