@@ -50,7 +50,7 @@ export default function MemoList(props) {
         style={styles.memoListItem}
         onPress={() => { navigation.navigate('MemoDetail', { id: item.id }); }}
       >
-        <View>
+        <View style={styles.memoInner}>
           <Text style={styles.memoListTitle} numberOfLines={1}>{item.bodyText}</Text>
           <Text style={styles.memoListItemDate}>{dateToString(item.updatedAt)}</Text>
         </View>
@@ -84,20 +84,18 @@ MemoList.propTypes = {
 };
 
 const styles = StyleSheet.create({
-  // *memolists* //
   memoListItem: {
     backgroundColor: '#ffffff',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    // 垂直方向の内側の余白 paddingVertical
     paddingVertical: 16,
-    // 水平方向の内側の余白 paddingHorizontal
     paddingHorizontal: 19,
-    // xボタンを水平にする
     alignItems: 'center',
-    // ボーダー
     borderBottomWidth: 1,
     borderColor: 'rgba(0, 0, 0, 0.15)',
+  },
+  memoInner: {
+    flex: 1,
   },
   memoListTitle: {
     fontSize: 16,
@@ -111,5 +109,4 @@ const styles = StyleSheet.create({
   memoDelete: {
     padding: 8,
   },
-  // *memolists* //
 });
