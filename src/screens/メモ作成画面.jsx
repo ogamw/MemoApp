@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  View, StyleSheet, TextInput,
+  View, StyleSheet, TextInput, Alert,
 } from 'react-native';
 
 import firebase from 'firebase';
@@ -8,6 +8,7 @@ import firebase from 'firebase';
 import CircleButton from '../components/CircleButton';
 import KeyboadSafeView from '../components/KeyboadSafeVie';
 import Loading from '../components/Loading';
+import { translateErrors } from '../utils';
 
 export default function メモ作成画面(props) {
   const { navigation } = props;
@@ -23,12 +24,12 @@ export default function メモ作成画面(props) {
       bodyText,
       updatedAt: new Date(),
     })
-      .then((docRef) => {
-        console.log('Created!', docRef.id);
+      .then(() => {
         navigation.goBack();
       })
       .catch((error) => {
-        console.log('Error!', error);
+        const errorMsg = translateErrors(error.code);
+        Alert.alert(errorMsg.title, errorMsg.description);
       })
       .then(() => {
         setLoading(false);
