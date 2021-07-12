@@ -37,6 +37,24 @@ export default function サインアップ画面(props) {
       });
   }
 
+  function gestLogIn() {
+    setLoading(true);
+    firebase.auth().signInAnonymously()
+      .then(() => {
+        navigation.reset({
+          index: 0,
+          routes: [{ name: 'MemoList' }],
+        });
+      })
+      .catch((error) => {
+        const errorMsg = translateErrors(error.code);
+        Alert.alert(errorMsg.title, errorMsg.description);
+      })
+      .then(() => {
+        setLoading(false);
+      });
+  }
+
   return (
     <View style={styles.container}>
       <Loading isLoading={isLoading} />
@@ -75,6 +93,14 @@ export default function サインアップ画面(props) {
             }}
           >
             <Text style={styles.footerLink}>Log In.</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.footer}>
+          <Text style={styles.footerText}>Log in as the</Text>
+          <TouchableOpacity
+            onPress={gestLogIn}
+          >
+            <Text style={styles.footerLink}>Guest user.</Text>
           </TouchableOpacity>
         </View>
       </View>
