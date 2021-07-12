@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { LogBox } from 'react-native';
+import { requestTrackingPermissionsAsync } from 'expo-tracking-transparency';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
 import firebase from 'firebase';
@@ -23,6 +24,15 @@ const Stack = createStackNavigator();
 LogBox.ignoreLogs(['Setting a timer']);
 
 export default function App() {
+  useEffect(() => {
+    (async () => {
+      const { status } = await requestTrackingPermissionsAsync();
+      if (status === 'granted') {
+        console.log('Yay! I have user permission to track data');
+      }
+    })();
+  }, []);
+
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -33,7 +43,6 @@ export default function App() {
           headerTitle: 'Memo App',
           headerTintColor: '#ffffff',
           headerBackTitle: 'Back',
-          // 画面遷移のアニメーションを指定。参照→https://reactnavigation.org/docs/stack-navigator/#animations
           cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
           gestureEnabled: true,
           gestureDirection: 'horizontal',

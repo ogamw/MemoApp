@@ -20,7 +20,10 @@
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "jp.suijoji.memoapp",
-      "buildNumber": "1.0.0"
+      "buildNumber": "1.0.0",
+      "infoPlist": {
+        "NSUserTrackingUsageDescription": "[テスト文言]収集したデータは、他社ウェブサイトで表示する広告の改善に使われます。"
+      }
     },
     "android": {
       "package": "jp.suijoji.memoapp",
@@ -33,6 +36,9 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-tracking-transparency"
+]
   }
 }
