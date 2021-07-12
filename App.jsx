@@ -27,8 +27,9 @@ export default function App() {
   useEffect(() => {
     (async () => {
       const { status } = await requestTrackingPermissionsAsync();
+      /* eslint no-empty: "error" */
       if (status === 'granted') {
-        console.log('Yay! I have user permission to track data');
+        // empty
       }
     })();
   }, []);
