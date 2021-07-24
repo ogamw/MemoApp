@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   Alert,
 } from 'react-native';
-import * as Localization from 'expo-localization';
+// import * as Localization from 'expo-localization';
 import i18n from 'i18n-js';
 import firebase from 'firebase';
 
@@ -17,14 +17,14 @@ import { translateErrors } from '../utils';
 
 i18n.translations = {
   ja: {
-    サインアップタイトル: 'データ登録', 登録確認メッセージ: 'データのある方はこちら', ログイン画面へ: 'ログイン', お試し版の紹介: '登録をせずにログインしますか？', 匿名ログイン: 'ゲストとしてログイン',
+    サインアップタイトル: 'データ登録', 登録確認メッセージ: 'データのある方はこちら', ログイン画面へ: 'ログイン', お試し版の紹介: 'データ登録をせずに始めますか？', 匿名ログイン: 'ゲストとしてログイン',
   },
   en: {
     サインアップタイトル: 'Sign Up', 登録確認メッセージ: 'Allready registred?', ログイン画面へ: 'Log In.', お試し版の紹介: 'Log in as the', 匿名ログイン: 'Guest user.',
   },
 };
 
-i18n.locale = Localization.locate;
+i18n.locale = 'ja';
 
 i18n.fallbacks = true;
 
@@ -83,7 +83,7 @@ export default function サインアップ画面(props) {
           onChangeText={(text) => { setEmail(text); }}
           autoCapitalize="none"
           keyboardType="email-address"
-          placeholder="Email Adress"
+          placeholder="メールアドレス"
           textContentType="emailAddress"
         />
         <TextInput
@@ -91,12 +91,12 @@ export default function サインアップ画面(props) {
           value={password}
           onChangeText={(text) => { setPassword(text); }}
           autoCapitalize="none"
-          placeholder="Password"
+          placeholder="パスワード"
           secureTextEntry
           textContentType="password"
         />
         <Button
-          label="Submit"
+          label="送信する"
           onPress={handlePress}
         />
         <View style={styles.footer}>
