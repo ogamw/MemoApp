@@ -20,9 +20,10 @@
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "jp.suijoji.memoapp",
-      "buildNumber": "1.0.1",
+      "buildNumber": "1.0.2",
       "infoPlist": {
-        "NSUserTrackingUsageDescription": "収集したデータは、他社ウェブサイトで表示する広告の改善に使われます。"
+        "NSUserTrackingUsageDescription": "収集したデータは、他社ウェブサイトで表示する広告の改善に使われます。",
+        "CFBundleAllowMixedLocalizations": true
       }
     },
     "android": {
@@ -40,5 +41,8 @@
     "plugins": [
       "expo-tracking-transparency"
 ]
+  },
+  "locales": {
+    "ja": "./languages/japanese.json"
   }
 }
