@@ -7,24 +7,23 @@ import {
   TouchableOpacity,
   Alert,
 } from 'react-native';
-// import * as Localization from 'expo-localization';
+import * as Localization from 'expo-localization';
 import i18n from 'i18n-js';
+
 import firebase from 'firebase';
+import ja from '../locales/ja.json';
+import en from '../locales/en.json';
 
 import Button from '../components/Button';
 import Loading from '../components/Loading';
 import { translateErrors } from '../utils';
 
 i18n.translations = {
-  ja: {
-    サインアップタイトル: 'データ登録', 登録確認メッセージ: 'データのある方はこちら', ログイン画面へ: 'ログイン', お試し版の紹介: 'データ登録をせずに始めますか？', 匿名ログイン: 'ゲストとしてログイン',
-  },
-  en: {
-    サインアップタイトル: 'Sign Up', 登録確認メッセージ: 'Allready registred?', ログイン画面へ: 'Log In.', お試し版の紹介: 'Log in as the', 匿名ログイン: 'Guest user.',
-  },
+  ja,
+  en,
 };
 
-i18n.locale = 'ja';
+i18n.locale = Localization.locate;
 
 i18n.fallbacks = true;
 
@@ -75,7 +74,7 @@ export default function サインアップ画面(props) {
       <Loading isLoading={isLoading} />
       <View style={styles.inner}>
         <Text style={styles.title}>
-          {i18n.t('サインアップタイトル')}
+          {i18n.t('signup.サインアップタイトル')}
         </Text>
         <TextInput
           style={styles.input}
@@ -101,7 +100,7 @@ export default function サインアップ画面(props) {
         />
         <View style={styles.footer}>
           <Text style={styles.footerText}>
-            {i18n.t('登録確認メッセージ')}
+            {i18n.t('signup.登録確認メッセージ')}
           </Text>
           <TouchableOpacity
             onPress={() => {
@@ -112,19 +111,19 @@ export default function サインアップ画面(props) {
             }}
           >
             <Text style={styles.footerLink}>
-              {i18n.t('ログイン画面へ')}
+              {i18n.t('signup.ログイン画面へ')}
             </Text>
           </TouchableOpacity>
         </View>
         <View style={styles.footer}>
           <Text style={styles.footerText}>
-            {i18n.t('お試し版の紹介')}
+            {i18n.t('signup.お試し版の紹介')}
           </Text>
           <TouchableOpacity
             onPress={gestLogIn}
           >
             <Text style={styles.footerLink}>
-              {i18n.t('匿名ログイン')}
+              {i18n.t('signup.匿名ログイン')}
             </Text>
           </TouchableOpacity>
         </View>

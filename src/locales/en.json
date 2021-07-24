@@ -1,0 +1,16 @@
+{
+  "login": {
+    "ログインタイトル": "Log In",
+    "登録確認メッセージ": "Not registred?",
+    "サインアップ画面へ": "Sign Up here!",
+    "お試し版の紹介": "Log in as the",
+    "匿名ログイン": "Guest user."
+  },
+  "signup": {
+    "サインアップタイトル": "Sign Up",
+    "登録確認メッセージ": "Allready registred?",
+    "ログイン画面へ": "Log In.",
+    "お試し版の紹介": "Log in as the",
+    "匿名ログイン": "Guest user."
+  }
+}
