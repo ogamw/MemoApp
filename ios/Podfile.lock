@@ -20,6 +20,8 @@ PODS:
     - UMCore
   - EXKeepAwake (9.2.0):
     - UMCore
+  - EXLocalization (10.2.0):
+    - UMCore
   - EXPermissions (12.1.1):
     - ExpoModulesCore
     - UMCore
@@ -39,7 +41,7 @@ PODS:
     - UMCore
   - EXTrackingTransparency (1.1.2):
     - UMCore
-  - EXUpdates (0.8.1):
+  - EXUpdates (0.8.2):
     - EXStructuredHeaders
     - EXUpdatesInterface
     - React-Core
@@ -348,6 +350,7 @@ DEPENDENCIES:
   - EXFont (from `../node_modules/expo-font/ios`)
   - EXImageLoader (from `../node_modules/expo-image-loader/ios`)
   - EXKeepAwake (from `../node_modules/expo-keep-awake/ios`)
+  - EXLocalization (from `../node_modules/expo-localization/ios`)
   - EXPermissions (from `../node_modules/expo-permissions/ios`)
   - ExpoModulesCore (from `../node_modules/expo-modules-core/ios`)
   - EXSplashScreen (from `../node_modules/expo-splash-screen/ios`)
@@ -414,6 +417,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-image-loader/ios"
   EXKeepAwake:
     :path: "../node_modules/expo-keep-awake/ios"
+  EXLocalization:
+    :path: "../node_modules/expo-localization/ios"
   EXPermissions:
     :path: "../node_modules/expo-permissions/ios"
   ExpoModulesCore:
@@ -509,12 +514,13 @@ SPEC CHECKSUMS:
   EXFont: 9846ba1bb6f5f5aed44e20eea3ac70693323832d
   EXImageLoader: d3531a3fe530b22925c19977cb53bb43e3821fe6
   EXKeepAwake: f4105ef469be7b283f66ce2d7234bb71ac80cd26
+  EXLocalization: 356f4e16a606cec21a77d6250528fde526152b45
   EXPermissions: 916efb5b817cb0a40160c0cd2f369af3c23a78be
   ExpoModulesCore: 2734852616127a6c1fc23012197890a6f3763dc7
   EXSplashScreen: 6208ca88470ff5979fd49a08ef3feb01143a2b79
   EXStructuredHeaders: e52b880264d15b8ad07d36670226c29476af6334
   EXTrackingTransparency: 3c4dd1ec833e827137480de3ee041c14c5c1f7b8
-  EXUpdates: 818f49bfab15b5a37bf16574959aa9c1224690ac
+  EXUpdates: dcc9d0432e1ad0a3f51b8721375401b4708bf7a1
   EXUpdatesInterface: b68e78b912a03fff7901a5f46ec200c45e3506a5
   FBLazyVector: 3bb422f41b18121b71783a905c10e58606f7dc3e
   FBReactNativeSpec: f2c97f2529dd79c083355182cc158c9f98f4bd6e
