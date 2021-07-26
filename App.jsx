@@ -11,6 +11,7 @@ import メモ編集画面 from './src/screens/メモ編集画面';
 import メモ作成画面 from './src/screens/メモ作成画面';
 import ログイン画面 from './src/screens/ログイン画面';
 import サインアップ画面 from './src/screens/サインアップ画面';
+import アカウント変換画面 from './src/screens/アカウント変換画面';
 
 import { firebaseConfig } from './env';
 
@@ -49,7 +50,13 @@ export default function App() {
           gestureDirection: 'horizontal',
         }}
       >
-        <Stack.Screen name="MemoList" component={メモリスト画面} />
+        <Stack.Screen
+          name="MemoList"
+          component={メモリスト画面}
+          options={{
+            cardStyleInterpolator: CardStyleInterpolators.forFadeFromBottomAndroid,
+          }}
+        />
         <Stack.Screen name="MemoDetail" component={メモ詳細画面} />
         <Stack.Screen name="MemoEdit" component={メモ編集画面} />
         <Stack.Screen name="MemoCreate" component={メモ作成画面} />
@@ -63,6 +70,13 @@ export default function App() {
         <Stack.Screen
           name="SignUp"
           component={サインアップ画面}
+          options={{
+            cardStyleInterpolator: CardStyleInterpolators.forFadeFromBottomAndroid,
+          }}
+        />
+        <Stack.Screen
+          name="UserUpgrade"
+          component={アカウント変換画面}
           options={{
             cardStyleInterpolator: CardStyleInterpolators.forFadeFromBottomAndroid,
           }}
