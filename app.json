@@ -2,7 +2,7 @@
   "expo": {
     "name": "MemoApp",
     "slug": "MemoApp",
-    "version": "1.0.0",
+    "version": "1.0.3",
     "privacy": "unlisted",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -20,7 +20,7 @@
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "jp.suijoji.memoapp",
-      "buildNumber": "1.0.2",
+      "buildNumber": "1.0.3",
       "infoPlist": {
         "NSUserTrackingUsageDescription": "収集したデータは、他社ウェブサイトで表示する広告の改善に使われます。",
         "CFBundleAllowMixedLocalizations": true
@@ -28,7 +28,7 @@
     },
     "android": {
       "package": "jp.suijoji.memoapp",
-      "versionCode": 1,
+      "versionCode": 2,
       "permissions": [],
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon_adaptive_foreground.png",
